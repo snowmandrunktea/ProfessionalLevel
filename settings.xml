@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+  <localRepository>D:\software\maven\repository</localRepository>
+  <pluginGroups>
+  </pluginGroups>
+  <proxies>
+  </proxies>
+
+  <servers>
+ 
+    <server>
+        <username>huaweiresearch</username>
+        <password>yuT$09IL2%Cw</password>
+        <id>Selfdev-centralrepo</id>
+    </server>
+
+  </servers>
+<mirrors>
+    <mirror>
+        <id>central</id>
+        <mirrorOf>*,!opensource,!product,!plugins,!Selfdev-centralrepo,!pluginsnew</mirrorOf>
+        <url>http://cmc-cd-mirror.rnd.huawei.com/maven</url>
+    </mirror>
+</mirrors>
+
+<profiles>
+    <profile>
+        <id>JDK1.8</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+            <jdk>1.8</jdk>
+        </activation>
+        <properties>
+            <maven.compiler.source>1.8</maven.compiler.source>
+            <maven.compiler.target>1.8</maven.compiler.target>
+            <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+        </properties>
+    </profile>
+    <profile>
+        <id>central</id>
+        <repositories>
+            <repository>
+                <id>opensource</id>
+                <url>http://cmc.centralrepo.rnd.huawei.com/maven</url>
+                <releases><enabled>true</enabled></releases>
+                <snapshots><enabled>false</enabled></snapshots>
+            </repository>
+
+        <repository>
+            <id>Selfdev-centralrepo</id>
+            <name>New central repo</name>
+            <url>http://language.cloudartifact.dgg.dragon.tools.huawei.com/artifactory/product_maven/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+        <repository>
+                <id>product</id>
+                <url>http://dgg.maven.repo.cmc.tools.huawei.com/artifactory/sz-maven-product</url>
+                <releases><enabled>true</enabled></releases>
+                <snapshots>
+                    <enabled>true</enabled>
+                    <updatePolicy>always</updatePolicy>
+                    </snapshots>
+        </repository>
+
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>plugins</id>
+            <url>http://dgg.maven.repo.cmc.tools.huawei.com/artifactory/sz-maven-public/</url>
+            <releases><enabled>true</enabled></releases>
+            <snapshots><enabled>true</enabled></snapshots>
+        </pluginRepository>
+
+        <pluginRepository>
+            <id>pluginsnew</id>
+            <url>http://language.cloudartifact.dgg.dragon.tools.huawei.com/artifactory/product_maven/</url>
+            <releases><enabled>true</enabled></releases>
+            <snapshots><enabled>true</enabled></snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+    </profile>
+</profiles>
+	<activeProfiles>
+        <activeProfile>central</activeProfile>
+    </activeProfiles>
+</settings>
